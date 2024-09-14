@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <style>
+        body{
+            display: flex;
+            background-color: rgb(19, 18, 18);
+            justify-content: center;
+            align-items: center;
+            font-family: 'poppins',Arial, Helvetica, sans-serif;
+        }
+        .container {
+            margin: 32px 0px;
+            width: 352px;
+            height: 528px;
+            background-color: #e8e8e8;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .s-w {
+            margin: 32px 0px 16px 0px;
+            width: 288px;
+            height: 80px;
+            border-radius: 8px;
+            background-color: #e8e8e8;
+            box-shadow: 6px 6px 12px #cfcfce,
+                -6px -6px 12px #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .screen-c {
+            width: 272px;
+            height: 64px;
+            border-radius: 4px;
+            background-color: #bbbfca;
+            box-shadow: inset 7PX 7PX 15px #9fa2ac,
+                inset -7px -7px 15px #d7dce8;
+        }
+
+        .screen {
+            padding-right: 7px;
+            width: 100%;
+            height: 70%;
+            color: #303841;
+            font-size: 32px;
+            text-align: right;
+        }
+
+        .h {
+            padding: 4px 7px 0 0;
+            width: 100%;
+            height: 30%;
+            font-size: 16px;
+            color: #303841;
+            text-align: right;
+            opacity: 0.5;
+
+        }
+
+        .container-2{
+            width: 320px;
+            height: 352px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap:16px
+        }
+
+        .btn{
+            all: unset;
+            width: 56px;
+            height: 56px;
+            font-size: 20px;
+            color: #303841;
+            border-radius: 50%;
+            background-color: #e8e8e8;
+            box-shadow: 5px 5px 10px #cfcfce,
+            -5px -5px 10px #ffffff;
+            cursor: pointer;
+        }
+.btn:nth-child(19){
+    width: 128px;
+    border-radius: 64px;}
+    .btn:nth-child(3),
+    .btn:nth-child(4),
+    .btn:nth-child(8),
+    .btn:nth-child(13),
+    .btn:nth-child(18){
+        background-color: #9fc2e7;
+    }
+
+    .btn:nth-child(1),
+    .btn:nth-child(2),
+    .btn:nth-child(21){
+        background-color: #f6b3c6;
+    }
+
+
+    </style>
+    <div class="container">
+        <div class="s-w">
+            <div class="screen-c" id="demo">
+
+                <div class="h"></div>
+                <div class="screen"></div>
+            </div>
+        </div>
+
+        <div class="container-2">
+            <button class="btn" onclick="allclear()">AC</button>
+            <button class="btn" onclick="singleclear()">C</button>
+            <button class="btn" onclick="task('%')">%</button>
+            <button class="btn" onclick="task('/')">/</button>
+
+            <button class="btn"  onclick="task(1)">1</button>
+            <button class="btn" onclick="task(2)">2</button>
+            <button class="btn" onclick="task(3)">3</button>
+            <button class="btn" onclick="task('+')">+</button>
+            <br>
+            <button class="btn" onclick="task(4)">4</button>
+            <button class="btn" onclick="task(5)">5</button>
+            <button class="btn" onclick="task(6)">6</button>
+            <button class="btn" onclick="task('-')">-</button>
+            <br>
+            <button class="btn" onclick="task(7)">7</button>
+            <button class="btn" onclick="task(8)">8</button>
+            <button class="btn" onclick="task(9)">9</button>
+            <button class="btn" onclick="task('')"></button>
+            <br>
+            <button class="btn" onclick="task(0)">0</button>
+            <button class="btn" onclick="eqe()">=</button>
+          </div>
+    </div>
+
+    <script>
+        let crr = [];
+        function task(value) {
+            crr.push(value);
+            let demo = document.getElementById('demo');
+            demo.innerHTML = crr.join('');
+        }
+
+        function allclear() {
+            crr = [];
+            let demo = document.getElementById('demo');
+            demo.innerHTML = crr;
+        }
+
+        function singleclear() {
+            crr.pop();
+            let demo = document.getElementById('demo');
+            demo.innerHTML = crr.join('');
+        }
+
+        function eqe() {
+            let strarr = crr.join('');
+            let demo = document.getElementById('demo');
+            let result = eval(strarr);
+            demo.innerHTML = result;
+        }
+
+        //   console.log(eval('5+6*2'));
+    </script>
+</body>
+
+</html>
